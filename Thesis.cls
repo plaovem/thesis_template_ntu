@@ -4,7 +4,7 @@
 % This template has been downloaded from:
 % http://www.latextemplates.com
 %
-% This class file defines the structure and design of the template. 
+% This class file defines the structure and design of the template.
 %
 % There is one part of this file that needs to be filled out - the variables
 % dictating the document particulars such as the author name, university
@@ -102,20 +102,24 @@
 \newpage
 \if@twocolumn\hbox{}\newpage\fi\fi\fi}
 \usepackage{amsmath,amsfonts,amscd,amsthm,xspace}
+
 \theoremstyle{plain}
-\newtheorem{expl}{Example}[chapter]
-\newtheorem{thm}{Theorem}[chapter]
-\newtheorem{col}[thm]{Corollary}
-\newtheorem{lem}{Lemma}[chapter]
-\newtheorem{prop}{Proposition}[chapter]
-\newtheorem{axiom}[thm]{Axiom}
+
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}{Proposition}[chapter]
+\newtheorem{axiom}[theorem]{Axiom}
+
 \theoremstyle{definition}
-\newtheorem{defn}{Definition}[chapter]
-\newtheorem{assum}{Assumption}[chapter]
-\newtheorem{rem}{Remark}[chapter] 
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{assumption}{Assumption}[chapter]
+\newtheorem{example}{Example}[chapter]
 \newtheorem*{pf}{Proof}
-%\theoremstyle{remark}
-%\newtheorem{rem}{Remark}
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[chapter]
+
 \usepackage[centerlast,small,sc]{caption}
 \captionsetup{justification=justified,singlelinecheck=true}
 \setlength{\captionmargin}{20pt}
@@ -161,10 +165,14 @@
         keywordstyle=\color{blue},
         commentstyle=\color[rgb]{0.13,0.55,0.13}\em,
         stringstyle=\color[rgb]{0.7,0,0} }
+
+% This only changes you PDF information. The thesis title and author name need further changes in \thesistile and \authors
+% To remove backref of references (the page number associated with the references where it is cited), please remove "backref=page".
 \usepackage[pdfpagemode={UseOutlines},bookmarks=true,bookmarksopen=true,
    bookmarksopenlevel=1,bookmarksnumbered=true,hypertexnames=true,
    colorlinks,linkcolor={blue},citecolor={blue},urlcolor={black},pdfauthor={Chen Wang},pdftitle={Kernel Learning for Visual Perception},
-   pdfstartview={FitV},unicode,breaklinks=true,plainpages=false, backref=page]{hyperref}
+   pdfstartview={FitV},unicode,breaklinks=true,plainpages=false,backref=page]{hyperref}
+
 \pdfstringdefDisableCommands{
    \let\\\space
 }
@@ -194,55 +202,55 @@
 %----------------------------------------------------------------------------------------
 
 %Your thesis title - this is used in the title and abstract
-%-------------------------------------------------  
+%-------------------------------------------------
 \thesistitle{\href{https://github.com/wang-chen/thesis_template_ntu}{The Greatest Thesis in the World}} %
-%-------------------------------------------------  
+%-------------------------------------------------
 \supervisor{Prof. Einstein \textsc{XXX}} % You supervisor's name - this is used in the title page
-%-------------------------------------------------   
+%-------------------------------------------------
 \examiner{} % Your examiner's name - this is not currently used anywhere in the template, cite it with \examname if you want it
-%-------------------------------------------------   
+%-------------------------------------------------
 \degree{Doctor of Philosophy} % Your degree name - this is currently used in the title page and abstract
-%-------------------------------------------------   
+%-------------------------------------------------
 \authors{\href{https://wang-chen.github.io}{Author Name}} % Your name - this is used in the title page and abstract
-%-------------------------------------------------   
+%-------------------------------------------------
 \addresses{} % Your address - this is not currently used anywhere in the template, cite it with \addressnames if you want it
-%-------------------------------------------------   
+%-------------------------------------------------
 \subject{} % Your subject area - this is not currently used anywhere in the template, cite it with \subjectname if you want it
-%-------------------------------------------------   
+%-------------------------------------------------
 \keywords{} % Keywords for your thesis - this is not currently used anywhere in the template, cite it with \keywordnames if you want it
-%-------------------------------------------------   
+%-------------------------------------------------
 \university{\texorpdfstring{\href{http://www.university.com} % Your university's URL
                 {University Name}} % Your university's name - this is currently used in the title page
                 {University Name}}
-%-------------------------------------------------   
+%-------------------------------------------------
 \UNIVERSITY{\texorpdfstring{\href{http://www.ntu.edu.sg/} % Your university's URL
                 {UNIVERSITY NAME (IN BLOCK CAPITALS)}} % Your university's name in capitals - this is currently used in the abstract page
                 {UNIVERSITY NAME (IN BLOCK CAPITALS)}}
-%-------------------------------------------------                
+%-------------------------------------------------
 \department{\texorpdfstring{\href{http://www.eee.ntu.edu.sg} % Your department's URL
                 {School of Electrical \& Electronic Engineering}} % Your department's name - used in the title page and abstract
                 {Department or School Name}}
-%-------------------------------------------------                
+%-------------------------------------------------
 \DEPARTMENT{\texorpdfstring{\href{Department or School Web Site URL Here (include http://)} % Your department's URL
                 {DEPARTMENT OR SCHOOL NAME (IN BLOCK CAPITALS)}} % Your department's name in capitals - this is not currently used anywhere in the template, cite it with \DEPTNAME if you want it
                 {DEPARTMENT OR SCHOOL NAME (IN BLOCK CAPITALS)}}
-%-------------------------------------------------                
+%-------------------------------------------------
 \group{\texorpdfstring{\href{Research Group Web Site URL Here (include http://)} % Your research group's URL
-                {Research Group Name}} % Your research group's name - this is currently used in the title page 
+                {Research Group Name}} % Your research group's name - this is currently used in the title page
                 {Research Group Name}}
-%-------------------------------------------------                
+%-------------------------------------------------
 \GROUP{\texorpdfstring{\href{Research Group Web Site URL Here (include http://)} % Your research group's URL
                 {RESEARCH GROUP NAME (IN BLOCK CAPITALS)}} % Your research group's name in capitals - this is not currently used anywhere in the template, cite it with \GROUPNAME if you want it
                 {RESEARCH GROUP NAME (IN BLOCK CAPITALS)}}
-%-------------------------------------------------                
+%-------------------------------------------------
 \faculty{\texorpdfstring{\href{Faculty Web Site URL Here (include http://)} % Your faculty's URL
                 {Faculty Name}} % Your faculty's name - this is currently used in the abstract page
                 {Faculty Name}}
-%-------------------------------------------------                
+%-------------------------------------------------
 \FACULTY{\texorpdfstring{\href{Faculty Web Site URL Here (include http://)} % Your faculty's URL
                 {FACULTY NAME (IN BLOCK CAPITALS)}} % Your faculty's name in capitals - this is not currently used anywhere in the template, cite it with \FACNAME if you want it
                 {FACULTY NAME (IN BLOCK CAPITALS)}}
-%----------------------------------------------------------------------------------------    
+%----------------------------------------------------------------------------------------
 
 %----------------------------------------------------------------------------------------
 % TITLE PAGE DESIGN
@@ -256,7 +264,7 @@
   \hypersetup{pdftitle={\@title}}
   \hypersetup{pdfsubject=\subjectname}
   \hypersetup{pdfauthor=\authornames}
-  \hypersetup{pdfkeywords=\keywordnames} 
+  \hypersetup{pdfkeywords=\keywordnames}
   \thispagestyle{empty}
   \begin{titlepage}
   \begin{center}
@@ -283,7 +291,7 @@
 	\hypersetup{pdftitle={\@title}}
 	\hypersetup{pdfsubject=\subjectname}
 	\hypersetup{pdfauthor=\authornames}
-	\hypersetup{pdfkeywords=\keywordnames} 
+	\hypersetup{pdfkeywords=\keywordnames}
 	\thispagestyle{empty}
 	\begin{titlepage}
 		\begin{center}
@@ -432,12 +440,14 @@
 \addtotoc{Acknowledgements}
 \thispagestyle{plain}
 \vspace*{1.5cm}
-\begin{center}{\flushleft\Huge{\textbf{Acknowledgements}} \par}\end{center}  
+\begin{center}{\flushleft\Huge{\textbf{Acknowledgements}} \par}\end{center}
 {\normalsize #1}
 \vfil\vfil\null
 \cleardoublepage
 }
 
+\usepackage{tikz}
+\usepackage{eso-pic}
 % NTU Style 3 statements
 \newcommand\thesisdeclareOriginality[3]{
 	\btypeout{Declaration}
@@ -448,12 +458,14 @@
 		\vspace{2.5cm}
 		\begin{center}
 			\makebox[4cm]{#2}  \hfill
-			\makebox[4cm]{\includegraphics[height=0.9cm]{#3}}\\
+      \tikz[remember picture,overlay] 
+      \node[opacity=0.9,inner sep=0pt]at (2.13, 0.5) {\includegraphics[width=4cm,height=1.527cm]{Styles/ntu-watermark.png}};
+      \makebox[4cm]{\includegraphics[height=0.9cm]{#3}}\\
 		\end{center}
 		\vspace{-1.8cm}
 		\begin{center}
 			\makebox[4cm]{\dotfill}  \hfill \makebox[4cm]{\dotfill}\\
-			\makebox[4cm]{Date}    \hfill \makebox[4cm]{\authornames}   
+			\makebox[4cm]{Date}    \hfill \makebox[4cm]{\authornames}
 		\end{center}
 	\end{spacing}
 	\cleardoublepage
@@ -468,12 +480,14 @@
 		\vspace{2.5cm}
 		\begin{center}
 			\makebox[4cm]{#2}  \hfill
+      \tikz[remember picture,overlay] 
+      \node[opacity=0.9,inner sep=0pt]at (2.13, 0.5) {\includegraphics[width=4cm,height=1.527cm]{Styles/ntu-watermark.png}};
 			\makebox[4cm]{\includegraphics[height=0.9cm]{#3}}\\
 		\end{center}
 		\vspace{-1.8cm}
 		\begin{center}
 			\makebox[4cm]{\dotfill}  \hfill \makebox[4cm]{\dotfill}\\
-			\makebox[4cm]{Date}    \hfill \makebox[4cm]{\supname}   
+			\makebox[4cm]{Date}    \hfill \makebox[4cm]{\supname}
 		\end{center}
 	\end{spacing}
 	\cleardoublepage
@@ -491,12 +505,14 @@
 		\vspace{2.5cm}
 		\begin{center}
 			\makebox[4cm]{#3}  \hfill
+      \tikz[remember picture,overlay] 
+      \node[opacity=0.9,inner sep=0pt]at (2.13, 0.5) {\includegraphics[width=4cm,height=1.527cm]{Styles/ntu-watermark.png}};
 			\makebox[4cm]{\includegraphics[height=0.9cm]{#4}}\\
 		\end{center}
 		\vspace{-1.8cm}
 		\begin{center}
 			\makebox[4cm]{\dotfill}  \hfill \makebox[4cm]{\dotfill}\\
-			\makebox[4cm]{Date}    \hfill \makebox[4cm]{\authornames}   
+			\makebox[4cm]{Date}    \hfill \makebox[4cm]{\authornames}
 		\end{center}
 	\end{spacing}
 	\cleardoublepage
@@ -511,7 +527,7 @@
 	\addtotoc{\secname}
 	\thispagestyle{plain}
 	\vspace*{1.5cm}
-	\begin{center}{\flushleft\Huge{\textbf{\secname\footnote[1]{The superscript $^*$ indicates joint first authors}}} \par}\end{center}  
+	\begin{center}{\flushleft\Huge{\textbf{\secname\footnote[1]{The superscript $^*$ indicates joint first authors}}} \par}\end{center}
 	{\normalsize #1}
 	\vfil\vfil\null
 	\cleardoublepage
